@@ -5,7 +5,7 @@ import java.io.*;
 import java.util.*;
 
 public class Gen{
-		public static HashMap<Integer,LinkedList<String>> gen = new HashMap<>();
+	public static HashMap<Integer,LinkedList<String>> gen = new HashMap<>();
 	public static void main(String[] args) {
 		List<String> lines = null;
 		
@@ -57,6 +57,6 @@ public class Gen{
 			gen.put(i+1,tmp);
 		}
 
-		System.out.println(gen.toString());
+		// System.out.println(gen.toString());
 	}
 }

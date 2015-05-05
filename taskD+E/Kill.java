@@ -36,6 +36,6 @@ public class Kill{
 			}
 			kill.put(i+1,tmp);
 		}
-		System.out.println(kill.toString());
+		// System.out.println(kill.toString());
 	}
 }
