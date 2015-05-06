@@ -37,6 +37,53 @@ public class InOut{
 			in = copyMap(tmpin);
 			out = copyMap(tmpout);
 
+			for (int i = 1; i <= lines.size(); ++i){
+				LinkedList<String> genList = gen.gen.get(i);
+				if (genList == null){
+					genList = new LinkedList<>();
+				}
+				LinkedList<String> inList = in.get(i);
+				if (inList == null){
+					inList = new LinkedList<>();
+				}
+				if (tmpout.get(i) == null){
+					tmpout.put(i,new LinkedList<String>());
+				}
+				
+				for (int j = 0; j < tmpout.get(i).size(); ++j){
+					String test = tmpout.get(i).get(j);
+					if (!kill.kill.get(i).contains(test)){
+						if (!inList.contains(test)){
+							inList.add(test);
+						}
+					}
+				}
+
+
+				for (int j = 0; j < genList.size(); ++j){
+					if (!inList.contains(genList.get(j))){
+						inList.add(genList.get(j));
+					}
+				}
+				in.put(i,inList);
+
+				LinkedList<Integer> succList = succ.succ.get(i);
+				if (succList == null){
+					succList = new LinkedList<>();
+				}
+				LinkedList<String> inj = new LinkedList<>();
+				for (int j = 0; j < succList.size(); ++j){
+					Integer tmpInt = succList.get(j);
+					LinkedList<String> lili = tmpin.get(tmpInt);
+					for (int k = 0; k < lili.size(); ++k){
+						if (!inj.contains(lili.get(k))){
+							inj.add(lili.get(k));
+						}
+					}
+				}
+				out.put(i,inj);
+			}
+
 			if (compare(tmpin,in) && compare(tmpout,out)){
 				break;
 			}
@@ -55,8 +102,6 @@ public class InOut{
 		for (int i = 0; i < k.length;++i){
 			newMap.put(k[i],maptocopy.get(k[i]));
 		}
-
-
 		return newMap;
 	}
 

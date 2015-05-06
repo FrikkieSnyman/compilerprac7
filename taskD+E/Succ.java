@@ -66,6 +66,6 @@ public class Succ{
 				}
 			}
 		}
-		// System.out.println(succ.toString());
+		System.out.println("SUCC: " + succ.toString());
 	}
 }

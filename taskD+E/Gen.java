@@ -57,6 +57,6 @@ public class Gen{
 			gen.put(i+1,tmp);
 		}
 
-		// System.out.println(gen.toString());
+		System.out.println("GEN: " + gen.toString());
 	}
 }
